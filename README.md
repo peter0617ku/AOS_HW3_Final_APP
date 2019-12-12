@@ -1,5 +1,5 @@
 # Fianl Project_APP
-Final project
+Final project in Java
 
 Software:
 1. PC (Server): IntelliJ IDEA Community Edition 2018.3.5
