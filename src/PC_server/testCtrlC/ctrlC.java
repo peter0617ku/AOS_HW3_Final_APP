@@ -9,8 +9,8 @@ import java.awt.datatransfer.Transferable;
 import java.awt.Toolkit;
 
 /**
- * ³]©w¦r¦ê¨ì°Å¶KÃ¯
- * @author ¦N¥L¤â 2010/02/27
+ * è¨­å®šå­—ä¸²åˆ°å‰ªè²¼ç°¿
+ * @author å‰ä»–æ‰‹ 2010/02/27
  *
  */
 
@@ -26,7 +26,7 @@ public class ctrlC implements ClipboardOwner{
     }
 
     /**
-     * ³]©w°Å¶K¤º®e
+     * è¨­å®šå‰ªè²¼å…§å®¹
      * @param str
      */   
     public void setBookContents(String str){
@@ -35,7 +35,7 @@ public class ctrlC implements ClipboardOwner{
     }
 
     /**
-     * ¨ú¥X°Å¶K¤º®e
+     * å–å‡ºå‰ªè²¼å…§å®¹
      * @return
      */
     public String getBookContents(){
