@@ -25,7 +25,6 @@ public class ctrlC implements ClipboardOwner{
 
     /**
      * 設定剪貼內容
-     * @param str
      */   
     public void setBookContents(String str){
         StringSelection contents = new StringSelection(str);
@@ -34,7 +33,6 @@ public class ctrlC implements ClipboardOwner{
 
     /**
      * 取出剪貼內容
-     * @return
      */
     public String getBookContents(){
         Transferable content = clipboard.getContents(this);
