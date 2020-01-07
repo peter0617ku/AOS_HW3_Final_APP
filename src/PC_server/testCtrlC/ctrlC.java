@@ -10,8 +10,6 @@ import java.awt.Toolkit;
 
 /**
  * 設定字串到剪貼簿
- * @author 吉他手 2010/02/27
- *
  */
 
 public class ctrlC implements ClipboardOwner{
@@ -55,10 +53,7 @@ public class ctrlC implements ClipboardOwner{
     public void lostOwnership(Clipboard clipboard, Transferable contents) {
         //System.out.println("lostOwnership...");
     }
-   
-    /**
-     * @param args
-     */
+  
     public static void main(String[] arg)
 	{
 		ctrlC a = new ctrlC();
