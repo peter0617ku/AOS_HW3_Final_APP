@@ -3,6 +3,9 @@ package MyApp;
 import java.io.*;
 import java.net.*;
 import java.util.Enumeration;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 
 public class AppServer implements Runnable{
 
@@ -77,8 +80,11 @@ public class AppServer implements Runnable{
                     //print 接收到的內容
                     FileReader fr = new FileReader(file_name);
                     BufferedReader br = new BufferedReader(fr);
+                    String content = null;
                     while (br.ready()) {
-                        System.out.println(br.readLine());
+                        content = br.readLine();
+                        System.out.println(content);
+                        placeTextOnClipboard(content);
                     }
                     fr.close();
 
@@ -103,6 +109,16 @@ public class AppServer implements Runnable{
 
     }
 
+
+
+    public void placeTextOnClipboard(String text) {
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Clipboard clipboard = toolkit.getSystemClipboard();
+        StringSelection stringSel = new StringSelection(text);
+        clipboard.setContents(stringSel, null);
+    }
+
+
     public static void main(String str[]) {
 
         Thread desktopSerThread = new Thread(new AppServer());
@@ -110,3 +126,7 @@ public class AppServer implements Runnable{
 
     }
 }
+
+
+
+
