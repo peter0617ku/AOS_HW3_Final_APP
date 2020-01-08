@@ -45,13 +45,14 @@
             android:id="@+id/button1"
             android:layout_width="142dp"
             android:layout_height="wrap_content"
-            android:textSize = "20sp"
-            android:text="送出" />
+            android:text="送出"
+            android:textSize="20sp" />
 
         <ImageButton
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="145dp"
             android:src="@android:drawable/ic_btn_speak_now" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

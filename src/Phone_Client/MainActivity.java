@@ -1,5 +1,18 @@
 package com.example.myapplication5;
 
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.os.Bundle;
+import android.speech.RecognizerIntent;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,30 +24,23 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.ArrayList;
 
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.os.Bundle;
-import android.speech.RecognizerIntent;
-import android.util.Log;
-import android.widget.Button;
-import android.widget.EditText;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
-
 public class MainActivity extends Activity  {
     Socket socket;
     public static final String file_name = "//storage//emulated//0//test.txt";
     EditText h;
     EditText g;
 
+    //EditText textToTranlate;
+    //Button buttonToTranslate;
+    TextView textComment;
+    TextView translatedText;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         h = (EditText) findViewById(R.id.et1);
         g = (EditText) findViewById(R.id.et2);
+
 
         final ImageButton submit1 = (ImageButton)findViewById(R.id.button2);
         submit1.setOnClickListener(new ImageButton.OnClickListener() {
@@ -49,9 +55,9 @@ public class MainActivity extends Activity  {
                 }
             }
         });
-
-        final Button submit = (Button)findViewById(R.id.button1);
-        submit.setOnClickListener(new Button.OnClickListener() {
+        //中文英文發送
+        final Button button1 = (Button)findViewById(R.id.button1);
+        button1.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View arg0){
                 if (!("".equals(h.getText().toString()))) {
                    String s = (String)(h.getEditableText().toString());
@@ -62,7 +68,7 @@ public class MainActivity extends Activity  {
                         bw.newLine();
                         bw.close();
                     } catch (IOException e) {
-                        submit.setText(e.toString());
+                        button1.setText(e.toString());
                         e.printStackTrace();
                     }
                 }
@@ -79,6 +85,9 @@ public class MainActivity extends Activity  {
             if(resultCode == RESULT_OK && data != null){
                 ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                 textView.setText(result.get(0));
+                //add
+                final Button submit = (Button)findViewById(R.id.button1);
+                submit.performClick();
             }
         }
     }
